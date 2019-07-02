@@ -9,7 +9,7 @@ function App() {
       <CssBaseline />
       <Switch>
         {routes.map(route => (
-          <Route {...route} />
+          <Route key={route.path} {...route} />
         ))}
       </Switch>
     </HashRouter>
