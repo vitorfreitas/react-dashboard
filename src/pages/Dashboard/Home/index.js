@@ -1,7 +1,6 @@
 import React from 'react';
 import { Grid, Paper } from '@material-ui/core';
 import clsx from 'clsx';
-import Sidebar from '../../../components/Sidebar';
 import useStyles from '../../../components/Sidebar/styles';
 import Chart from './Chart';
 import Table from './Table';

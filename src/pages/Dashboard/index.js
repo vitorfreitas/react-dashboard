@@ -1,11 +1,13 @@
 import React from 'react';
-import { Route } from 'react-router-dom';
+import { Route, Link } from 'react-router-dom';
 import Sidebar from '../../components/Sidebar';
 import Home from './Home';
+import Form from './Form';
 
-const Dashboard = () => (
+const Dashboard = ({ match }) => (
   <Sidebar>
-    <Route path="/" component={Home} />
+    <Route exact path={match.path} component={Home} />
+    <Route path={`${match.path}/form`} component={Form} />
   </Sidebar>
 );
 
