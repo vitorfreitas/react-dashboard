@@ -27,6 +27,15 @@ export const mainListItems = (
       </ListItem>
     </Link>
 
+    <Link to="/dashboard/list" style={linkStyles}>
+      <ListItem button>
+        <ListItemIcon>
+          <TableIcon />
+        </ListItemIcon>
+        <ListItemText primary="Table List" />
+      </ListItem>
+    </Link>
+
     <Link to="/dashboard/form" style={linkStyles}>
       <ListItem button>
         <ListItemIcon>
@@ -35,12 +44,6 @@ export const mainListItems = (
         <ListItemText primary="Form" />
       </ListItem>
     </Link>
-    <ListItem button>
-      <ListItemIcon>
-        <TableIcon />
-      </ListItemIcon>
-      <ListItemText primary="Table" />
-    </ListItem>
   </div>
 );
 

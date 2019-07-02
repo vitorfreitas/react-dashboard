@@ -5,14 +5,29 @@ import {
   TableRow,
   TableCell,
   TableBody,
-  Typography
+  Typography,
+  makeStyles,
+  Fab
 } from '@material-ui/core';
+import AddIcon from '@material-ui/icons/Add';
+import { Link } from 'react-router-dom';
+
+const useStyles = makeStyles(theme => ({
+  seeMore: {
+    marginTop: theme.spacing(3),
+    marginLeft: 'auto'
+  },
+  fabIcon: {
+    marginRight: theme.spacing(1)
+  }
+}));
 
 const Table = ({ rows }) => (
   <>
     <Typography component="h2" variant="h6" color="primary" gutterBottom>
       Recent Orders
     </Typography>
+
     <MUITable size="small">
       <TableHead>
         <TableRow>
@@ -35,6 +50,13 @@ const Table = ({ rows }) => (
         ))}
       </TableBody>
     </MUITable>
+
+    <Link className={useStyles().seeMore} to="/dashboard/form">
+      <Fab size="small" color="primary" variant="extended">
+        <AddIcon className={useStyles().fabIcon} />
+        Add new order
+      </Fab>
+    </Link>
   </>
 );
 
