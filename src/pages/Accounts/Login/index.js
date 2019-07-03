@@ -11,16 +11,18 @@ import {
   Container
 } from '@material-ui/core';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
+import { connect } from 'react-redux';
 import useStyles from './styles';
+import { setUserToken } from '../../../redux/actions/user';
 
-const Login = () => {
+const Login = ({ setUserToken, user }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const classes = useStyles();
 
   const loginToAccount = e => {
     e.preventDefault();
-    console.log({ email, password });
+    setUserToken('1oi2i3h1i2oen124h');
   };
 
   return (
@@ -31,7 +33,7 @@ const Login = () => {
         </Avatar>
 
         <Typography component="h1" variant="h5">
-          Entrar
+          Sign in
         </Typography>
 
         <form className={classes.form} onSubmit={loginToAccount} noValidate>
@@ -42,7 +44,7 @@ const Login = () => {
             fullWidth
             id="email"
             onChange={ev => setEmail(ev.target.value)}
-            label="Endereço de email"
+            label="Email address"
             name="email"
             autoComplete="email"
             autoFocus
@@ -54,14 +56,14 @@ const Login = () => {
             fullWidth
             onChange={ev => setPassword(ev.target.value)}
             name="password"
-            label="Senha"
+            label="Password"
             type="password"
             id="password"
             autoComplete="current-password"
           />
           <FormControlLabel
             control={<Checkbox value="remember" color="primary" />}
-            label="Permanecer logado"
+            label="Keep logged in"
           />
           <Button
             type="submit"
@@ -70,13 +72,13 @@ const Login = () => {
             color="primary"
             className={classes.submit}
           >
-            Entrar
+            Sign in
           </Button>
 
           <Grid container>
             <Grid item xs>
               <Link href="#" variant="body2">
-                Esqueceu a senha?
+                Forgot your password?
               </Link>
             </Grid>
           </Grid>
@@ -86,4 +88,13 @@ const Login = () => {
   );
 };
 
-export default Login;
+const mapStateToProps = state => ({ ...state });
+
+const mapDispatchToProps = {
+  setUserToken
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Login);
