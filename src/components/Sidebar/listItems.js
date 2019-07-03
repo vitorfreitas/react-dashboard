@@ -10,6 +10,7 @@ import DashboardIcon from '@material-ui/icons/Dashboard';
 import AssignmentIcon from '@material-ui/icons/Assignment';
 import TableIcon from '@material-ui/icons/TableChart';
 import AboutIcon from '@material-ui/icons/Help';
+import LogoutIcon from '@material-ui/icons/ExitToApp';
 
 const linkStyles = {
   textDecoration: 'none',
@@ -50,11 +51,21 @@ export const mainListItems = (
 export const secondaryListItems = (
   <div>
     <ListSubheader inset>Options</ListSubheader>
+
+    <Link to="/dashboard/feedbacks" style={linkStyles}>
+      <ListItem button>
+        <ListItemIcon>
+          <AboutIcon />
+        </ListItemIcon>
+        <ListItemText primary="Feedbacks" />
+      </ListItem>
+    </Link>
+
     <ListItem button>
       <ListItemIcon>
-        <AboutIcon />
+        <LogoutIcon />
       </ListItemIcon>
-      <ListItemText primary="About" />
+      <ListItemText primary="Logout" />
     </ListItem>
   </div>
 );
