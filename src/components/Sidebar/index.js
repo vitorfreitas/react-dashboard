@@ -2,7 +2,10 @@ import React from 'react';
 import clsx from 'clsx';
 import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
-import { mainListItems, secondaryListItems } from './listItems';
+import {
+  MainListItemsRedux as MainListItems,
+  SecondaryListItemsRedux as SecondaryListItems
+} from './listItems';
 import useStyles from './styles';
 import {
   AppBar,
@@ -66,9 +69,13 @@ const Sidebar = ({ children }) => {
           </IconButton>
         </div>
         <Divider />
-        <List>{mainListItems}</List>
+        <List>
+          <MainListItems />
+        </List>
         <Divider />
-        <List>{secondaryListItems}</List>
+        <List>
+          <SecondaryListItems />
+        </List>
       </Drawer>
       <main className={classes.content}>
         <div className={classes.appBarSpacer} />
