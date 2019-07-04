@@ -15,14 +15,21 @@ import { connect } from 'react-redux';
 import useStyles from './styles';
 import { setUserToken } from '../../../redux/actions/user';
 
-const Login = ({ setUserToken, user }) => {
+const Login = ({ setUserToken, history }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [keepLoggedIn, setKeepLoggedIn] = useState('');
   const classes = useStyles();
 
   const loginToAccount = e => {
     e.preventDefault();
     setUserToken('1oi2i3h1i2oen124h');
+
+    if (keepLoggedIn) {
+      localStorage.setItem('token', '1oi2i3h1i2oen124h');
+    }
+
+    history.replace('/dashboard');
   };
 
   return (
@@ -62,7 +69,13 @@ const Login = ({ setUserToken, user }) => {
             autoComplete="current-password"
           />
           <FormControlLabel
-            control={<Checkbox value="remember" color="primary" />}
+            control={
+              <Checkbox
+                onChange={ev => setKeepLoggedIn(ev.target.checked)}
+                value="remember"
+                color="primary"
+              />
+            }
             label="Keep logged in"
           />
           <Button
